@@ -1,6 +1,7 @@
+import 'package:fifty/global.dart';
 import 'package:fifty/models/workout.dart';
 import 'package:fifty/providers/workout_provider.dart';
-import 'package:fifty/screens/homescreen.dart';
+import 'package:fifty/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -28,10 +29,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       showSemanticsDebugger: false,
       theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: Color(0XFFF5F7F9),
+        scaffoldBackgroundColor: Global.colors.backgroundColor,
         appBarTheme: AppBarTheme(
-          backgroundColor: Color(0XFFF5F7F9),
-        ),
+            elevation: 0,
+            backgroundColor: Global.colors.backgroundColor,
+            titleTextStyle: TextStyle(
+              fontSize: 26,
+              color: Colors.black,
+            )),
       ),
       home: HomeScreen(),
     );

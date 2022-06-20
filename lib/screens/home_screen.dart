@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:fifty/global.dart';
 import 'package:fifty/providers/workout_provider.dart';
+import 'package:fifty/screens/help_screen.dart';
 import 'package:fifty/screens/widgets/gradient_icon.dart';
 import 'package:fifty/screens/widgets/gradient_text.dart';
 import 'package:fifty/screens/widgets/workout_card.dart';
@@ -56,7 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 0,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      fullscreenDialog: true,
+                      builder: (context) => HelpScreen())),
               icon: Icon(
                 Icons.help,
                 color: Color(0XFF3D7695),
@@ -139,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Container(
                   padding: EdgeInsets.all(2),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(5),
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
@@ -149,31 +155,32 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: () {},
-                      child: Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.transparent),
+                  child: Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Global.colors.backgroundColor,
+                      ),
+                      child: Material(
+                        borderRadius: BorderRadius.circular(5),
+                        clipBehavior: Clip.hardEdge,
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            // TODO: Add new workout
+                          },
                           child: Center(
-                            // child: GradientIcon(
-                            //   Icons.add,
-                            //   25,
-                            //   LinearGradient(
-                            //     begin: Alignment.topLeft,
-                            //     end: Alignment.bottomRight,
-                            //     colors: [
-                            //       Color(0XFFDB7343),
-                            //       Color(0XFF3D7695),
-                            //     ],
-                            //   ),
-                            // ),
-                            child: Icon(
+                            child: GradientIcon(
                               Icons.add,
-                              color: Colors.white,
+                              25,
+                              LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0XFFDB7343),
+                                  Color(0XFF3D7695),
+                                ],
+                              ),
                             ),
                           ),
                         ),
