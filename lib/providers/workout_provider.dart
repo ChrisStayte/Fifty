@@ -10,8 +10,8 @@ class WorkoutProvider extends ChangeNotifier {
   final Box box = Hive.box<Workout>(BoxName);
 
   List<Workout> _workouts = [];
-  UnmodifiableListView<Workout> get workouts =>
-      UnmodifiableListView<Workout>(_workouts);
+  UnmodifiableListView<Workout> get workouts => UnmodifiableListView<Workout>(
+      _workouts..sort((a, b) => a.name.compareTo(b.name)));
 
   WorkoutProvider() {
     getWorkouts();
@@ -50,6 +50,7 @@ class WorkoutProvider extends ChangeNotifier {
       workouts: <DateTime, int>{},
     );
 
+    box.add(workout);
     _workouts.add(workout);
     notifyListeners();
   }

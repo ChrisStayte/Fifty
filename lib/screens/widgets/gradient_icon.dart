@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GradientIcon extends StatelessWidget {
   GradientIcon(
@@ -17,7 +18,7 @@ class GradientIcon extends StatelessWidget {
       child: SizedBox(
         width: size * 1.2,
         height: size * 1.2,
-        child: Icon(
+        child: FaIcon(
           icon,
           size: size,
           color: Colors.white,

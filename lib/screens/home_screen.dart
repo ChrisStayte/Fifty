@@ -9,6 +9,7 @@ import 'package:fifty/screens/widgets/workout_card.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,6 +20,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  DateTime now = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,57 +42,25 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
             child: GradientText(
-              'June 18th, 2022',
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0XFFDB7343),
-                  Color(0XFF3D7695),
-                ],
-              ),
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
+              DateFormat('MMMM dd, yyyy').format(now),
+              gradient: Global.colors.gradient,
+              // style: TextStyle(
+              //   fontSize: 30,
+              //   fontWeight: FontWeight.bold,
+              // ),
             ),
           ),
           centerTitle: false,
           elevation: 0,
           actions: [
             IconButton(
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      fullscreenDialog: true,
-                      builder: (context) => HelpScreen())),
+              onPressed: () => Navigator.pushNamed(context, '/help'),
               icon: Icon(
                 Icons.help,
                 color: Color(0XFF3D7695),
               ),
             )
           ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: Container(
-            width: 56,
-            height: 56,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0XFFDB7343),
-                  Color(0XFF3D7695),
-                ],
-              ),
-            ),
-            child: Icon(
-              Icons.timer,
-            ),
-          ),
         ),
         body: Column(
           children: [
@@ -140,48 +111,34 @@ class _HomeScreenState extends State<HomeScreen> {
             // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: SizedBox(
+              child: Container(
                 height: 50,
-                child: Container(
-                  padding: EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color(0XFFDB7343),
-                        Color(0XFF3D7695),
-                      ],
+                padding: EdgeInsets.all(2),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Global.ui.cornerRadius),
+                  gradient: Global.colors.gradient,
+                ),
+                child: Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.circular(Global.ui.cornerRadius),
+                      color: Global.colors.backgroundColor,
                     ),
-                  ),
-                  child: Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: Global.colors.backgroundColor,
-                      ),
-                      child: Material(
-                        borderRadius: BorderRadius.circular(5),
-                        clipBehavior: Clip.hardEdge,
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            // TODO: Add new workout
-                          },
-                          child: Center(
-                            child: GradientIcon(
-                              Icons.add,
-                              25,
-                              LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Color(0XFFDB7343),
-                                  Color(0XFF3D7695),
-                                ],
-                              ),
-                            ),
+                    child: Material(
+                      borderRadius:
+                          BorderRadius.circular(Global.ui.cornerRadius),
+                      clipBehavior: Clip.hardEdge,
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/newWorkout');
+                        },
+                        child: Center(
+                          child: GradientIcon(
+                            Icons.add,
+                            25,
+                            Global.colors.gradient,
                           ),
                         ),
                       ),
