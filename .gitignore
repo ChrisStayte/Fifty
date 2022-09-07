@@ -107,10 +107,13 @@ unlinked_spec.ds
 **/macos/Flutter/ephemeral
 **/xcuserdata/
 
+<<<<<<< HEAD
 # Windows
 **/windows/flutter/generated_plugin_registrant.cc
 **/windows/flutter/generated_plugin_registrant.h
 
+=======
+>>>>>>> 03181b91f8c75f00902eb9ae4aa5a9378c7d06e9
 # Coverage
 coverage/
 
