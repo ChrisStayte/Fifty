@@ -130,31 +130,29 @@ class _WorkoutCardState extends State<WorkoutCard> {
                 ),
               ],
             ),
-            Expanded(
-              child: Row(
-                children: [
-                  WorkoutCardButton(
-                    amount: 1,
-                    callback: addAmountToWorkout,
-                  ),
-                  WorkoutCardButton(
-                    amount: 5,
-                    callback: addAmountToWorkout,
-                  ),
-                  WorkoutCardButton(
-                    amount: 10,
-                    callback: addAmountToWorkout,
-                  ),
-                  WorkoutCardButton(
-                    amount: 25,
-                    callback: addAmountToWorkout,
-                  ),
-                  WorkoutCardButton(
-                    amount: 50,
-                    callback: addAmountToWorkout,
-                  ),
-                ],
-              ),
+            Row(
+              children: [
+                WorkoutCardButton(
+                  amount: 1,
+                  callback: addAmountToWorkout,
+                ),
+                WorkoutCardButton(
+                  amount: 5,
+                  callback: addAmountToWorkout,
+                ),
+                WorkoutCardButton(
+                  amount: 10,
+                  callback: addAmountToWorkout,
+                ),
+                WorkoutCardButton(
+                  amount: 25,
+                  callback: addAmountToWorkout,
+                ),
+                WorkoutCardButton(
+                  amount: 50,
+                  callback: addAmountToWorkout,
+                ),
+              ],
             )
           ],
         ),

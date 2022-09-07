@@ -118,28 +118,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(Global.ui.cornerRadius),
                   gradient: Global.colors.gradient,
                 ),
-                child: Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular(Global.ui.cornerRadius),
-                      color: Global.colors.backgroundColor,
-                    ),
-                    child: Material(
-                      borderRadius:
-                          BorderRadius.circular(Global.ui.cornerRadius),
-                      clipBehavior: Clip.hardEdge,
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/newWorkout');
-                        },
-                        child: Center(
-                          child: GradientIcon(
-                            Icons.add,
-                            25,
-                            Global.colors.gradient,
-                          ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Global.ui.cornerRadius),
+                    color: Global.colors.backgroundColor,
+                  ),
+                  child: Material(
+                    borderRadius: BorderRadius.circular(Global.ui.cornerRadius),
+                    clipBehavior: Clip.hardEdge,
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/newWorkout');
+                      },
+                      child: Center(
+                        child: GradientIcon(
+                          Icons.add,
+                          25,
+                          Global.colors.gradient,
                         ),
                       ),
                     ),
